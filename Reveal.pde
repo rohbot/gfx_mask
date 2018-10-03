@@ -33,7 +33,7 @@ class Reveal {
     graphicalMask.fill(255);
     graphicalMask.noStroke();
     // An ellipse to see a good part of the image
-    graphicalMask.ellipse(x, y, 50, 50);
+    graphicalMask.ellipse(x, y, 75, 75);
     graphicalMask.endDraw();
 
     // Copy the original image (kept as reference)

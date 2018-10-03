@@ -23,7 +23,7 @@ class Blob {
 
   void draw() {
     //ellipse(pos.x/2, pos.y/2, 50, 50);
-    image(brushImage, drawX/2, drawY/2, size, size);
+    image(brushImage, drawX, drawY, size, size);
   }
 
   String toString() {

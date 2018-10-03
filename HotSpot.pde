@@ -9,14 +9,13 @@ class HotSpot {
   HotSpot(int _size, Reveal r) {
     size = _size;
     reveal = r;
-    pos = new PVector(random(width), random(height));
+    pos = new PVector(random(width) *0.9, random(height)* 0.9);
   }
 
   boolean checkCollision(Blob b) {
     float d = dist(pos.x, pos.y, b.pos.x, b.pos.y);
     println("dist:" + str(d));
     if (d < 100) {
-      pos = new PVector(random(width), random(height));
       revealTime = millis(); 
       revealed = true;
       blobId = b.id;
@@ -33,12 +32,15 @@ class HotSpot {
     fill(255, 0, 0);
     ellipse(pos.x, pos.y, size, size);
     popStyle();
-    if (millis() - revealTime < 5000) {
+    if (revealed && millis() - revealTime < 5000) {
       reveal.draw();
     } else {
       if (revealed) {
         revealed = false;
+        pos = new PVector(random(width), random(height));
+
         blobId = "";
+        println("reveal over");
       }
     }
   }
